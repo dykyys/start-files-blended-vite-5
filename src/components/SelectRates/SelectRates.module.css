@@ -1,0 +1,33 @@
+.select {
+  width: 110px;
+
+  border-style: none;
+
+  background-color: transparent;
+  border-radius: 8px;
+
+  font-size: 16px;
+  outline: none;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+
+  transition: all 0.5s ease-in-out;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+.select option:first-of-type {
+  color: var(--color-light);
+}
+
+.text {
+  font-size: 18px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}

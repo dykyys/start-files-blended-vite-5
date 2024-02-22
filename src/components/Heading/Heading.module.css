@@ -1,0 +1,28 @@
+.title {
+  font-size: var(--font-large);
+  font-weight: 700;
+  color: var(--color-dark);
+  /* text-shadow: 1px 1px #6b9876b9; */
+
+  text-align: center;
+
+  position: relative;
+}
+
+.top {
+  margin-top: 50px;
+}
+
+.bottom {
+  margin-bottom: 50px;
+}
+
+.error {
+  composes: title;
+  color: var(--color-error);
+}
+
+.info {
+  composes: title;
+  color: #adcb28;
+}

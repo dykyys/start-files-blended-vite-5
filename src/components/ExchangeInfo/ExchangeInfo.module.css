@@ -1,0 +1,40 @@
+.wrapper {
+  background: var(--color-white);
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 0 auto;
+}
+
+.box {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.capital {
+  margin: 0 0 0.5rem 0;
+  color: #999;
+  font-size: 1.25rem;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.details {
+  font-size: 1.25rem;
+  color: #999;
+}
+
+.accent {
+  color: var(--color-primary);
+  font-weight: bold;
+}
