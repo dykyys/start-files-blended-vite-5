@@ -1,5 +1,10 @@
 import { Heading } from 'components';
 
 export const App = () => {
-  return <Heading title="Just do it!" />;
+  return (
+    <div>
+      <Heading title="Just do it!" />
+      <p>Hello</p>
+    </div>
+  );
 };
