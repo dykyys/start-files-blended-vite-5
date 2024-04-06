@@ -9,5 +9,7 @@ export const getUserInfo = async ({ latitude, longitude }) => {
       language: 'en',
     },
   });
-  return data;
+  // console.log(data);
+  console.log(data.results[0].annotations.currency.iso_code);
+  return data.results[0].annotations.currency.iso_code;
 };
