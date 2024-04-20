@@ -3,29 +3,24 @@ import Home from 'pages/Home';
 import Rates from 'pages/Rates';
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getUserInfo } from './service';
+
+import { useDispatch } from 'react-redux';
+import { fetchBaseCurrency } from 'reduxState/operations';
+import { setBaseCurrency } from 'reduxState/currencySlice';
 
 export const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    
-
     function success(pos) {
-      const crd = pos.coords;
-getUserInfo(pos.coords)
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
+      dispatch(fetchBaseCurrency(pos.coords));
     }
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
+    function error() {
+      dispatch(setBaseCurrency('USD'));
     }
 
     navigator.geolocation.getCurrentPosition(success, error);
-  }, [])
-  
-
+  }, [dispatch]);
 
   return (
     <Routes>
@@ -33,7 +28,7 @@ getUserInfo(pos.coords)
         <Route index element={<Home />} />
         <Route path="rates" element={<Rates />} />
       </Route>
-      <Route path="*" element={<Navigate to="/"/>} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
-  )
+  );
 };
