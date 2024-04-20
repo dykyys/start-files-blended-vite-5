@@ -18,3 +18,15 @@ export const fetchBaseCurrency = createAsyncThunk(
     }
   },
 );
+
+export const fetchExchangeCurrency = createAsyncThunk(
+  'currency/exchcangeCurrency',
+  async (credentials, thunkAPI) => {
+    try {
+      const data = await exchangeCurrency(credentials);
+      return data.results;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
