@@ -25,8 +25,8 @@ export const fetchExchangeCurrency = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const data = await exchangeCurrency(credentials);
-      console.lof(data);
-      return data.results;
+      console.log(data);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

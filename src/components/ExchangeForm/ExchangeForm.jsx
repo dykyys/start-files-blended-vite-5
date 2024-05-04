@@ -8,9 +8,9 @@ export const ExchangeForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log(event.currentTarget.elements.currency.value);
-    const [ammount, from, , to] =
+    const [amount, from, , to] =
       event.currentTarget.elements.currency.value.split(' ');
-    const currencyObj = { ammount, from, to };
+    const currencyObj = { amount, from, to };
     console.log(currencyObj);
     dispatch(fetchExchangeCurrency(currencyObj));
   };
