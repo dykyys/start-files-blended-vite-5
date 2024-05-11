@@ -3,17 +3,20 @@ import Rates from 'pages/Rates';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Header } from './components';
 import { useEffect } from 'react';
+import { getUserInfo } from './service';
 
 export const App = () => {
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
-      timeout: 5000,
+      timeout: 10000,
       maximumAge: 0,
     };
 
     function success(pos) {
       const crd = pos.coords;
+
+      getUserInfo(pos.coords);
 
       console.log('Your current position is:');
       console.log(`Latitude : ${crd.latitude}`);
