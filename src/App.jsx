@@ -1,11 +1,14 @@
-import { Header, Heading } from 'components';
+import { Header } from 'components';
 import Home from 'pages/Home';
 import Rates from 'pages/Rates';
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getUserInfo } from './service';
+import { useDispatch } from 'react-redux';
+import { fetchBaseCurrency } from 'reduxState/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
@@ -14,12 +17,7 @@ export const App = () => {
     };
 
     function success(pos) {
-      const crd = pos.coords;
-      getUserInfo(pos.coords);
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
+      dispatch(fetchBaseCurrency(pos.coords));
     }
 
     function error(err) {
