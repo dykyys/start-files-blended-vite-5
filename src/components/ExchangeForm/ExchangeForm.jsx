@@ -23,6 +23,7 @@ export const ExchangeForm = () => {
         title="Request format 15 USD in UAH"
         pattern="^\d+(\.\d{1,2})?\s[a-zA-Z]{3}\sin\s[a-zA-Z]{3}$"
         className={styles.input}
+        placeholder="15 USD in UAH"
         required
       />
     </form>
