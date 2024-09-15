@@ -1,1 +1,1 @@
-const selectBaseCurrency = state => state.currency.baseCurrency;
+export const selectBaseCurrency = state => state.currency.baseCurrency;
