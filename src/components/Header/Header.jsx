@@ -5,7 +5,7 @@ import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
 
-export const Header = () => {
+export const Header = ({children}) => {
   return (
     <>
       <header className={styles.header}>
@@ -36,10 +36,10 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-       //✔ Add base currency here !!!
+        //✔ Add base currency here !!!
       </header>
       <Suspense fallback={null}>
-        <Outlet />
+        <main>{children}</main>
       </Suspense>
     </>
   );
