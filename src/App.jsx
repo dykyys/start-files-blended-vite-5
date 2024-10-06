@@ -3,9 +3,12 @@ import Home from 'pages/Home.jsx';
 import Rates from 'pages/Rates.jsx';
 import { Header } from 'components/Header/Header.jsx';
 import { useEffect } from 'react';
-import { getUserInfo } from 'service/opencagedataApi.js';
+import { useDispatch } from 'react-redux';
+import { getCurrency } from 'reduxState/currency/operation.js';
+import { setDefaultCurrency } from 'reduxState/currency/slice.js';
 
 export const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
@@ -14,17 +17,11 @@ export const App = () => {
     };
     async function success(pos) {
       var crd = pos.coords;
-
-      console.log('Ваше текущее местоположение:');
-      console.log(`Широта: ${crd.latitude}`);
-      console.log(`Долгота: ${crd.longitude}`);
-      console.log(`Плюс-минус ${crd.accuracy} метров.`);
-
-      console.log(await getUserInfo(crd).re);
+      dispatch(getCurrency(crd));
     }
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
+    function error() {
+      dispatch(setDefaultCurrency());
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
