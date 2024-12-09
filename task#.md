@@ -82,8 +82,6 @@ const urlPosition = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon
 
 - Потрібно підключити в проєкт redux
   `npm install @reduxjs/toolkit react-redux redux-persist`
-- Для підключення redux потрібно використовувати папку `reduxState` тому що
-  Alias налаштовані саме з папки з назвою `reduxState`
 - Використовуючи `createAsyncThunk`, потрібно створити thunk для того, щоб
   записати в стейт поточну валюту користувача. Нехай Redux-state виглядає
   наступним чином.
