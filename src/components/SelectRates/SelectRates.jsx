@@ -6,7 +6,7 @@ import styles from './SelectRates.module.css';
 
 import './ReactSelect.css';
 
-export const SelectRates = () => {
+const SelectRates = () => {
   return (
     <div className={styles.box}>
       <p className={styles.text}>Your base currency:&nbsp;</p>
@@ -18,3 +18,5 @@ export const SelectRates = () => {
     </div>
   );
 };
+
+export default SelectRates;

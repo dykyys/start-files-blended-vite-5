@@ -1,4 +1,6 @@
-import { Container, Heading, Section } from 'components';
+import Section from '../components/Section/Section';
+import Container from '../components/Container/Container';
+import Heading from '../components/Heading/Heading';
 
 const Home = () => {
   const isError = false;

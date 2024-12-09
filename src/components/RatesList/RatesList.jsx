@@ -1,6 +1,9 @@
-import { Grid, GridItem } from 'components';
+import Grid from '../Grid/Grid';
+import GridItem from '../GridItem/GridItem';
+
 import styles from './RatesList.module.css';
-export const RatesList = ({ rates }) => {
+
+const RatesList = ({ rates }) => {
   return (
     <Grid>
       {rates.map(({ key, value }) => (
@@ -13,3 +16,4 @@ export const RatesList = ({ rates }) => {
     </Grid>
   );
 };
+export default RatesList;

@@ -1,6 +1,8 @@
 import { Wave } from 'react-animated-text';
 
-import { Container, Heading, Section } from 'components';
+import Section from '../components/Section/Section';
+import Container from '../components/Container/Container';
+import Heading from '../components/Heading/Heading';
 
 const Rates = () => {
   const isError = false;

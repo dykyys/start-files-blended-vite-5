@@ -5,7 +5,8 @@ import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
 
-export const Header = () => {
+const Header = () => {
+  const addActive = ({ isActive }) => (isActive ? styles.active : styles.link);
   return (
     <>
       <header className={styles.header}>
@@ -14,22 +15,12 @@ export const Header = () => {
           <nav>
             <ul className={styles.nav}>
               <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? styles.active : styles.link
-                  }
-                >
+                <NavLink to="/" className={addActive}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/rates"
-                  className={({ isActive }) =>
-                    isActive ? styles.active : styles.link
-                  }
-                >
+                <NavLink to="/rates" className={addActive}>
                   Rates
                 </NavLink>
               </li>
@@ -43,3 +34,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;

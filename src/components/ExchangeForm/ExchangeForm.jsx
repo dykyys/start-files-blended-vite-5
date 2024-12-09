@@ -1,7 +1,7 @@
 import { RiExchangeDollarFill } from 'react-icons/ri';
 import styles from './ExchangeForm.module.css';
 
-export const ExchangeForm = () => {
+const ExchangeForm = () => {
   return (
     <form className={styles.form}>
       <button className={styles.button} type="submit">
@@ -12,3 +12,5 @@ export const ExchangeForm = () => {
     </form>
   );
 };
+
+export default ExchangeForm;
