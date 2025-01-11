@@ -59,8 +59,7 @@
 ## 2 Крок (на даному етапі користувач завжди дозволяє використовувати своє місцезнаходження)
 
 - Визначити поточне місцезнаходження користувача, використовуючи метод
-  [getCurrentPosition]
-  (https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
+  [getCurrentPosition](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
 - Коли ми отримали `latitude` і `longitude` місцезноходження нашого користувача,
   ми можемо отримати його поточну валюту використовуючи сервіс
   [opencagedata](https://opencagedata.com/)
