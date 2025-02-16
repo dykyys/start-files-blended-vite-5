@@ -17,6 +17,7 @@ const initialState = {
   loading: false,
   error: null,
   rates: [],
+  filter: "",
 };
 
 const currencySlice = createAppSlice({
@@ -26,11 +27,18 @@ const currencySlice = createAppSlice({
     selectBaseCurrency: state => state.baseCurrency,
     selectExchangeInfo: state => state.exchangeInfo,
     selectRate: state => state.rates,
+    selectFilter: state => state.filter,
+    
   },
   reducers: create => ({
     setDefaultCurrency: create.reducer((state, action) => {
       state.baseCurrency = action.payload;
     }),
+
+    setFilter: create.reducer((state, action) => {
+      state.filter = action.payload;
+    }),
+
     getBaseCurrency: create.asyncThunk(
       async crd => {
         const data = await getUserInfo(crd);
@@ -98,15 +106,17 @@ const currencySlice = createAppSlice({
 
 
 export default currencySlice.reducer;
-export const { getBaseCurrency, setDefaultCurrency, getExchangeInfo, getExchangeRates } =
+export const { getBaseCurrency, setDefaultCurrency, setFilter, getExchangeInfo, getExchangeRates } =
 currencySlice.actions;
-export const { selectBaseCurrency, selectExchangeInfo, selectRate } =
+export const { selectBaseCurrency, selectExchangeInfo, selectRate, selectFilter } =
 currencySlice.selectors;
 
 export const filteredRates = createSelector(
-  [selectRate, selectBaseCurrency],
-  (rates, baseCurrency) =>
+  [selectRate, selectBaseCurrency, selectFilter],
+  (rates, baseCurrency, filter) =>
     rates
-      .filter(([key]) => key !== baseCurrency)
-      .map(([key, value]) => ({ key, value: (1 / value).toFixed(2) })),
+  .filter(
+    ([key]) => key !== baseCurrency && key.toLowerCase().includes(filter),
+  )
+  .map(([key, value]) => ({ key, value: (1 / value).toFixed(2) }))
 );

@@ -6,27 +6,30 @@ import Heading from '../components/Heading/Heading';
 
 import { useDispatch, useSelector } from 'react-redux';
 import RatesList from '../components/RatesList/RatesList';
-import { filteredRates, getExchangeRates } from '../redux/currencySlice';
+import { filteredRates, getExchangeRates, selectBaseCurrency } from '../redux/currencySlice';
 import { useEffect } from 'react';
+import Filter from '../components/Filter/Filter';
 
 const Rates = () => {
   const isError = false;
   const rates = useSelector(filteredRates);
   const dispatch = useDispatch();
+  const baseRates= useSelector(selectBaseCurrency)
 
   useEffect(() => {
     dispatch(getExchangeRates(rates));
-  }, [dispatch]);
+  }, [rates, dispatch]);
 
   return (
     <Section>
       <Container>
+        <Filter/>
         <Heading
           info
           bottom
           title={
             <Wave
-              text={`$ $ $ Current exchange rate for 1 ${'UAH'} $ $ $`}
+              text={`$ $ $ Current exchange rate for 1 ${baseRates} $ $ $`}
               effect="fadeOut"
               effectChange={4.0}
             />

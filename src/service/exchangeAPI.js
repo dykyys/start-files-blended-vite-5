@@ -16,7 +16,6 @@ export const exchangeCurrency = async credentials => {
 
 export const latestRates = async baseCurrency => {
   const { data } = await instance.get(`/latest?symbols&base=${baseCurrency}`);
-  console.log(data.rates);
   return Object.entries(data.rates);
   
 };
