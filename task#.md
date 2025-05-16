@@ -106,7 +106,7 @@ const urlPosition = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon
     const { baseCurrency } = state.currency;
 
     if (baseCurrency) {
-      return thunkAPI.rejectWithValue('We already have base currency!');
+      return baseCurrency;
     }
 ```
 
@@ -328,7 +328,7 @@ useEffect(() => {
 ```bash
 rates
   .filter(
-    ([key]) => key !== baseCurrency && key.toLowerCase().includes(filter),
+    ([key]) => key !== baseCurrency && key.toLowerCase().includes(filter.toLowerCase()),
   )
   .map(([key, value]) => ({ key, value: (1 / value).toFixed(2) }));
 ```
